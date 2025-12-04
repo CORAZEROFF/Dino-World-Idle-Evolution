@@ -18,3 +18,9 @@ Features:
 🔥 Prestige and become even MORE powerful
 
 Play, evolve, profit (in dinosaur points).
+
+GOW TO PLAY????
+
+Copy paste this link and enjoy
+
+https://corazeroff.github.io/Dino-World-Idle-Evolution/
