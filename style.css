@@ -1,0 +1,327 @@
+/* ---------- GLOBAL & BACKGROUND ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("assets/ui/prehistoricbg.png");
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.35);
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* ---------- TOP BAR ---------- */
+.topbar {
+  position: fixed;
+  top: 10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  max-width:1200px;
+  background: rgba(0,0,0,0.62);
+  padding:12px 20px;
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.top-item {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:bold;
+  text-shadow:0 0 6px black;
+}
+
+.icon {
+  width:40px;
+  height:40px;
+}
+
+/* ---------- LOCAL SAVE TAG (replacement for login area) ---------- */
+.localSaveTag {
+  font-size: 1rem;
+  opacity: 0.9;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-shadow:0 0 6px black;
+}
+
+/* ---------- HEADER ROW (DPS + TABS) ---------- */
+.header-row {
+  margin-top:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:8px;
+}
+
+.dps-box {
+  font-weight:bold;
+  font-size:1.25rem;
+  text-shadow:0 0 6px black;
+}
+
+/* ---------- TABS ---------- */
+.tabs {
+  display:flex;
+  gap:8px;
+}
+
+.tab {
+  background: rgba(255,255,255,0.08);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  transition: all .12s ease;
+}
+
+.tab.active {
+  background: rgba(255,210,106,0.95);
+  color:#1b1b1b;
+}
+
+.tab:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- TAB PANELS ---------- */
+main {
+  padding-bottom:80px;
+}
+
+.tab-panel {
+  display:none;
+  padding: 18px;
+  max-width:1200px;
+  margin: 10px auto;
+}
+
+.tab-panel.active {
+  display:block;
+}
+
+/* ---------- SHOP / GRID ---------- */
+.shop-grid {
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.shop-item {
+  width:260px;
+  background: rgba(255,255,255,0.12);
+  padding:14px;
+  border-radius:10px;
+  color:white;
+  text-shadow:0 0 6px black;
+  box-shadow:0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* ---------- UPGRADES ---------- */
+.upgrade-grid {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.upgrade-card {
+  width:240px;
+  background: rgba(255,255,255,0.08);
+  padding:10px;
+  border-radius:8px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ---------- DINO DISPLAY ---------- */
+.dino-display {
+  margin: 6px auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background: rgba(0,0,0,0.18);
+  padding:18px;
+  border-radius:12px;
+  width:fit-content;
+  position:relative;
+}
+
+.dino-display img {
+  width:260px;
+}
+
+.big-btn {
+  margin-top: 12px;
+  padding:14px 28px;
+  font-size:1.2rem;
+  border-radius:10px;
+  border:none;
+  background:#80ff8d;
+  cursor:pointer;
+  box-shadow:0 6px 14px rgba(0,0,0,0.4);
+  transition:transform .12s ease;
+}
+
+.big-btn:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- GENERIC BUTTON ---------- */
+.btn {
+  padding:8px 12px;
+  border-radius:8px;
+  border:none;
+  background:#ffd26a;
+  cursor:pointer;
+  font-weight:bold;
+  transition: transform .12s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- GOLDEN DINO + EGG ---------- */
+.golden {
+  width:150px;
+  position:absolute;
+  top:10px;
+  right:10px;
+  cursor:pointer;
+  z-index:2000;
+  display:block;
+  transition: transform .2s;
+}
+
+.golden:hover {
+  transform: translateY(-8px);
+}
+
+.egg {
+  width:90px;
+  position:absolute;
+  top:160px;
+  left:50%;
+  transform:translateX(-50%);
+  cursor:pointer;
+  z-index:2000;
+}
+
+/* ---------- UNLOCKED DINOS ---------- */
+.unlocked-grid {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.unlocked-dino {
+  width:140px;
+  background: rgba(255,255,255,0.08);
+  padding:8px;
+  border-radius:8px;
+}
+
+/* ---------- PRESTIGE TREE ---------- */
+.prestige-tree {
+  margin-top:12px;
+  background: rgba(0,0,0,0.18);
+  padding:10px;
+  border-radius:8px;
+}
+
+.tree-grid {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.tree-node {
+  width:200px;
+  padding:10px;
+  background: rgba(255,255,255,0.06);
+  border-radius:8px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.25);
+}
+
+/* ---------- DPS GRAPH ---------- */
+#dpsCanvas {
+  background: rgba(255,255,255,0.04);
+  border-radius:8px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.25);
+  margin-top:12px;
+}
+
+/* ---------- PARTICLES ---------- */
+.particle {
+  position:absolute;
+  font-weight:bold;
+  font-size:1.2rem;
+  color:#ffd26a;
+  text-shadow:0 0 6px black;
+  animation: floatUp 900ms ease-out forwards;
+  pointer-events:none;
+}
+
+@keyframes floatUp {
+  0%{ transform: translateY(0); opacity:1; }
+  100%{ transform: translateY(-60px); opacity:0; }
+}
+
+/* ---------- MODAL (OFFLINE PROGRESS) ---------- */
+.modal {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.7);
+  z-index:3000;
+}
+
+.modal-content {
+  background:white;
+  color:#111;
+  padding:18px;
+  border-radius:8px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* ---------- RESPONSIVE STYLE ---------- */
+@media (max-width:820px) {
+  .header-row { flex-direction:column; gap:12px; align-items:center; }
+  .topbar { width:95%; }
+  .shop-grid, .upgrade-grid { flex-direction:column; align-items:center; }
+  #dpsCanvas { width:95%; }
+}

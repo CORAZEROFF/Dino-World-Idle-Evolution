@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dino World</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="top-item">
+      <img src="assets/ui/bone.png" class="icon">
+      <span id="points">0</span>
+      <img src="assets/ui/egg.png" class="icon">
+      <span id="fossils">0</span>
+    </div>
+
+    <!-- REMOVED Firebase login/register/suggestion buttons -->
+    <div id="accountArea">
+      <span class="localSaveTag">Local Save Active</span>
+    </div>
+  </header>
+
+  <!-- HEADER ROW -->
+  <div class="header-row">
+    <div class="dps-box">DPS: <span id="dpsText">0</span></div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="homeTab">Home</button>
+      <button class="tab" data-tab="buildTab">Buildings</button>
+      <button class="tab" data-tab="upgradeTab">Upgrades</button>
+      <button class="tab" data-tab="labTab">Lab</button>
+      <button class="tab" data-tab="dinosTab">Dinos</button>
+      <button class="tab" data-tab="prestigeTab">Prestige</button>
+      <button class="tab" data-tab="statsTab">Stats</button>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- HOME TAB -->
+    <section class="tab-panel active" id="homeTab">
+      <div class="dino-display">
+        <img id="dinoSprite" src="assets/dinos/trex_idle.png">
+        <button id="clickDino" class="big-btn">Tap the Dino!</button>
+      </div>
+
+      <h2>Quick Buildings</h2>
+      <div class="shop-grid" id="quickBuildings"></div>
+
+      <h2>Events</h2>
+      <div id="eventOutput"></div>
+    </section>
+
+    <!-- BUILDINGS TAB -->
+    <section class="tab-panel" id="buildTab">
+      <h2>Buildings</h2>
+      <div class="shop-grid" id="buildingsGrid"></div>
+    </section>
+
+    <!-- UPGRADES TAB -->
+    <section class="tab-panel" id="upgradeTab">
+      <h2>Permanent Upgrades</h2>
+      <div class="upgrade-grid" id="permanentUpgrades"></div>
+
+      <h2>Repeatable Upgrades</h2>
+      <div class="upgrade-grid" id="repeatableUpgrades"></div>
+    </section>
+
+    <!-- LAB TAB -->
+    <section class="tab-panel" id="labTab">
+      <h2>Dino Lab</h2>
+      <p>Fossils: <span id="fossilsUI">0</span></p>
+      <div class="upgrade-grid" id="labGrid"></div>
+    </section>
+
+    <!-- DINOS TAB -->
+    <section class="tab-panel" id="dinosTab">
+      <h2>Unlocked Dinos</h2>
+      <div class="unlocked-grid" id="unlockedGrid"></div>
+
+      <h2>Egg Log</h2>
+      <div id="eggLog"></div>
+    </section>
+
+    <!-- PRESTIGE TAB -->
+    <section class="tab-panel" id="prestigeTab">
+      <h2>Prestige</h2>
+      <p>Evolution Points: <span id="evoPointsUI">0</span></p>
+      <button id="prestigeBtn" class="btn">Prestige</button>
+
+      <h2>Prestige Tree</h2>
+      <div class="tree-grid" id="prestigeTreeGrid"></div>
+    </section>
+
+    <!-- STATS TAB -->
+    <section class="tab-panel" id="statsTab">
+      <h2>DPS Graph</h2>
+      <canvas id="dpsCanvas" width="600" height="240"></canvas>
+    </section>
+
+  </main>
+
+  <!-- GOLDEN DINO -->
+  <img id="goldenDino" class="golden" src="assets/dinos/golden_dino.png" style="display:none">
+
+  <!-- EGG DROP -->
+  <img id="eggDrop" class="egg" src="assets/ui/egg.png" style="display:none">
+
+  <!-- PARTICLES LAYER -->
+  <div id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></div>
+
+  <!-- OFFLINE REWARD MODAL -->
+  <div class="modal" id="offlineModal" style="display:none">
+    <div class="modal-content">
+      <h3>Offline Earnings</h3>
+      <p>You were gone for <span id="offlineTime">0</span> seconds.</p>
+      <p>Earned: <span id="offlinePoints">0</span> points</p>
+      <button id="claimOffline" class="btn">Claim</button>
+      <button id="dismissOffline" class="btn">Dismiss</button>
+    </div>
+  </div>
+
+  <!-- SOUNDS -->
+  <audio id="clickSound" src="assets/sounds/click.mp3"></audio>
+  <audio id="buySound" src="assets/sounds/buy.mp3"></audio>
+  <audio id="eventSound" src="assets/sounds/event.mp3"></audio>
+  <audio id="prestigeSound" src="assets/sounds/prestige.mp3"></audio>
+
+  <!-- GAME CODE ONLY -->
+  <script src="game.js"></script>
+
+</body>
+</html>
